@@ -1,4 +1,0 @@
-dotfiles
-========
-
-Drinkspiller's dotfiles
