@@ -25,10 +25,12 @@ set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
 
 " Local dirs
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-set undodir=~/.vim/undo
-set undofile " Persistent Undo.
+if version >= 703
+    set backupdir=~/.vim/backups
+    set directory=~/.vim/swaps
+    set undodir=~/.vim/undo
+    set undofile " Persistent Undo.
+endif
 
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
