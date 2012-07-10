@@ -3,3 +3,4 @@
 	email = github@syntax101.com
 [credential]
 	helper = cache
+[core]
