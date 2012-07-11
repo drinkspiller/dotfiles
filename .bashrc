@@ -32,7 +32,16 @@ alias undopush="git push -f origin HEAD^:master"
 
 alias reload='. ~/.bashrc'
 alias vi='/usr/bin/vim'
-alias hosts='vim /cygdrive/c/Windows/System32/drivers/etc/hosts'
+
+#per platform hosts alias
+if [ -f /cygdrive/c/Windows/System32/drivers/etc/hosts ]; then
+    alias hosts='vim /cygdrive/c/Windows/System32/drivers/etc/hosts'
+elif [ -f /private/etc/hosts ]; then
+    alias hosts='vim /private/etc/hosts'
+elif [ -f /etc/hosts ]; then
+    alias hosts='vim /etc/hosts'
+fi
+
 alias Desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias delsvn='find ./ -name ".svn" -0 | xargs -0 rm -Rf'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
