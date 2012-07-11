@@ -43,6 +43,7 @@ elif [ -f /etc/hosts ]; then
 fi
 
 alias Desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
+alias desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias delsvn='find ./ -name ".svn" -0 | xargs -0 rm -Rf'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 rm -Rf'
