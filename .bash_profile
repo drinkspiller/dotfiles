@@ -7,4 +7,9 @@ fi
 
 # User specific environment and startup programs
 
-
+#start ssh-agent
+if [ -x /bin/bash ]; then
+    exec ssh-agent /bin/bash
+elif [ -x /usr/bin/bash ]; then
+    exec ssh-agent /usr/bin/bash
+fi
