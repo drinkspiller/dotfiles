@@ -36,6 +36,8 @@ alias undopush="git push -f origin HEAD^:master"
 
 alias reload='. ~/.bashrc'
 alias vi='/usr/bin/vim'
+alias vimi='vim -c start' #start vim in insery mode
+
 
 #per platform hosts alias
 if [ -f /cygdrive/c/Windows/System32/drivers/etc/hosts ]; then
