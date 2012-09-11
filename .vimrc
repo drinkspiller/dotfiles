@@ -14,12 +14,12 @@ set laststatus=2 " Always show status line
 set report=0 " Show all changes.
 set ruler " Show the cursor position
 set scrolloff=3 " Start scrolling three lines before horizontal border of window.
-set shiftwidth=4 " The # of spaces for indenting.
+set shiftwidth=2 " The # of spaces for indenting.
 set showmode " Show the current mode.
 set sidescrolloff=3 " Start scrolling three columns before vertical border of window.
 set smartcase " Ignore 'ignorecase' if search patter contains uppercase characters.
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
-set softtabstop=4 " Tab key results in 4 spaces
+set softtabstop=2 " Tab key results in 2 spaces
 set title " Show the filename in the window titlebar.
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
@@ -53,7 +53,7 @@ syntax on
 colorscheme murphy
 set autoindent
 set number
-set paste
+"set paste
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set notitle
