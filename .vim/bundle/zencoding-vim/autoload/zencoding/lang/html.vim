@@ -16,7 +16,7 @@ function! zencoding#lang#html#findTokens(str)
   let str = a:str
   let [pos, last_pos] = [0, 0]
   while 1
-    let tag = matchstr(str, '<.\{-}>', pos)
+    let tag = matchstr(str, '<[a-zA-Z].\{-}>', pos)
     if len(tag) == 0
       break
     endif
@@ -113,7 +113,7 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
         let snippet = substitute(snippet, '|', '${cursor}', 'g')
       endif
       let lines = split(snippet, "\n")
-      call map(lines, 'substitute(v:val, "\\(    \\|\\t\\)", indent, "g")')
+      call map(lines, 'substitute(v:val, "\\(    \\|\\t\\)", escape(indent, "\\\\"), "g")')
       let current.snippet = join(lines, "\n")
       let current.name = ''
     endif
@@ -247,7 +247,7 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
               endif
               let parent = tmp
             endfor
-            if operator =~ '>'
+            if len(pos) > 0
               call remove(pos, -1)
             endif
             let last = parent
@@ -290,6 +290,7 @@ function! zencoding#lang#html#toString(settings, current, type, inline, filters,
   let filters = a:filters
   let itemno = a:itemno
   let indent = a:indent
+  let dollar_expr = zencoding#getResource(type, 'dollar_expr', 1)
 
   if zencoding#useFilter(filters, 'haml')
     return zencoding#lang#haml#toString(settings, current, type, inline, filters, itemno, indent)
@@ -300,24 +301,30 @@ function! zencoding#lang#html#toString(settings, current, type, inline, filters,
 
   let comment = ''
   let current_name = current.name
-  let current_name = substitute(current_name, '\$$', itemno+1, '')
+  if dollar_expr
+    let current_name = substitute(current_name, '\$$', itemno+1, '')
+  endif
 
   let str = ''
   if len(current_name) == 0
     let text = current.value[1:-2]
-    let text = substitute(text, '\%(\\\)\@\<!\(\$\+\)\([^{#]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
-    let text = substitute(text, '\${nr}', "\n", 'g')
-    let text = substitute(text, '\\\$', '$', 'g')
+    if dollar_expr
+      let text = substitute(text, '\%(\\\)\@\<!\(\$\+\)\([^{#]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
+      let text = substitute(text, '\${nr}', "\n", 'g')
+      let text = substitute(text, '\\\$', '$', 'g')
+    endif
     return text
   endif
   if len(current_name) > 0
   let str .= '<' . current_name
   for attr in keys(current.attr)
     let val = current.attr[attr]
-    while val =~ '\$\([^#{]\|$\)'
-      let val = substitute(val, '\(\$\+\)\([^{]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
-    endwhile
-    let attr = substitute(attr, '\$$', itemno+1, '')
+    if dollar_expr
+      while val =~ '\$\([^#{]\|$\)'
+        let val = substitute(val, '\(\$\+\)\([^{]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
+      endwhile
+      let attr = substitute(attr, '\$$', itemno+1, '')
+    endif
     let str .= ' ' . attr . '="' . val . '"'
     if zencoding#useFilter(filters, 'c')
       if attr == 'id' | let comment .= '#' . val | endif
@@ -332,9 +339,11 @@ function! zencoding#lang#html#toString(settings, current, type, inline, filters,
   else
     let str .= ">"
     let text = current.value[1:-2]
-    let text = substitute(text, '\%(\\\)\@\<!\(\$\+\)\([^{#]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
-    let text = substitute(text, '\${nr}', "\n", 'g')
-    let text = substitute(text, '\\\$', '$', 'g')
+    if dollar_expr
+      let text = substitute(text, '\%(\\\)\@\<!\(\$\+\)\([^{#]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
+      let text = substitute(text, '\${nr}', "\n", 'g')
+      let text = substitute(text, '\\\$', '$', 'g')
+    endif
     let str .= text
     let nc = len(current.child)
     let dr = 0
@@ -348,12 +357,16 @@ function! zencoding#lang#html#toString(settings, current, type, inline, filters,
           if nc > 1 || (len(child.name) > 0 && stridx(','.settings.html.inline_elements.',', ','.child.name.',') == -1)
             let str .= "\n" . indent
             let dr = 1
+          elseif current.multiplier == 1 && nc == 1 && len(child.name) == 0
+			  echo current.multiplier
+            let str .= "\n" . indent
+            let dr = 1
           endif
         endif
         let inner = zencoding#toString(child, type, 0, filters, itemno)
         let inner = substitute(inner, "^\n", "", 'g')
-        let inner = substitute(inner, "\n", "\n" . indent, 'g')
-        let inner = substitute(inner, "\n" . indent . '$', '', 'g')
+        let inner = substitute(inner, "\n", "\n" . escape(indent, '\'), 'g')
+        let inner = substitute(inner, "\n" . escape(indent, '\') . '$', '', 'g')
         let str .= inner
       endfor
     else
