@@ -35,8 +35,8 @@ alias routes='vim ./config/routes.rb'
 # GIT STUFF
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
-alias dotfiles_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git"
-alias dotfiles_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.git"
+alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git"
+alias df_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.git"
 
 alias reload='. ~/.bashrc'
 alias vi='/usr/bin/vim'
