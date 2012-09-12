@@ -59,5 +59,7 @@ set pastetoggle=<F2>
 set notitle
 set backspace=indent,eol,start "fix backspace for vim in cygwin
 
+map <F1> :NERDTreeToggle<CR>
+
 " run pathogen
 call pathogen#infect()
