@@ -50,7 +50,8 @@ nnoremap Y y$
 
 "#####################################
 syntax on
-colorscheme murphy
+"colorscheme murphy
+colorscheme Tomorrow-Night
 set autoindent
 set number
 "set paste
@@ -63,3 +64,4 @@ map <F1> :NERDTreeToggle<CR>
 
 " run pathogen
 call pathogen#infect()
+set t_Co=256
