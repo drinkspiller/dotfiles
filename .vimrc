@@ -77,6 +77,7 @@ function! ToggleMouse()
   else
     set mouse=nvc
     set number
+    NERDTreeTabsOpen
     echo "Mouse usage enabled"
   endif
 endfunction
