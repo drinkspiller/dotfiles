@@ -10,7 +10,6 @@ set hlsearch " Highlight searches
 set ignorecase " Ignore case of searches.
 set incsearch " Highlight dynamically as pattern is typed.
 set laststatus=2 " Always show status line
-set mouse=nvc
 set report=0 " Show all changes.
 set ruler " Show the cursor position
 set scrolloff=3 " Start scrolling three lines before horizontal border of window.
@@ -70,7 +69,21 @@ let g:NERDTreeDirArrows=0  "fixes arrows per http://is.gd/dGFXIP
 "open a NERDTree automatically when vim starts up if no files were specified:
 "autocmd vimenter * if !argc() | NERDTree | endif
 
+"Enable and disable mouse use
+set mouse=nvc
 
+noremap <f3> :call ToggleMouse() <CR>
+function! ToggleMouse()
+  if &mouse == 'nvc'
+    set mouse=
+    set nonumber
+    echo "Mouse usage disabled"
+  else
+    set mouse=nvc
+    set number
+    echo "Mouse usage enabled"
+  endif
+endfunction
 
 
 " run pathogen
