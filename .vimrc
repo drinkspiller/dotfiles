@@ -10,7 +10,7 @@ set hlsearch " Highlight searches
 set ignorecase " Ignore case of searches.
 set incsearch " Highlight dynamically as pattern is typed.
 set laststatus=2 " Always show status line
-set mouse=a
+set mouse=nvc
 set report=0 " Show all changes.
 set ruler " Show the cursor position
 set scrolloff=3 " Start scrolling three lines before horizontal border of window.
@@ -61,11 +61,13 @@ set notitle
 set backspace=indent,eol,start "fix backspace for vim in cygwin
 
 " NERDTREE
-map <F1> :NERDTreeToggle<CR>
+"map <F1> :NERDTreeToggle<CR>
+map <F1> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
 "close vim if the only window left open is a NERDTree:
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "open a NERDTree automatically when vim starts up if no files were specified:
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 
 
