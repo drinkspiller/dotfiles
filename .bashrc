@@ -32,6 +32,7 @@ fi
 
 #RUBY SHORTCUTS
 alias routes='vim ./config/routes.rb'
+alias deploy='vim ./config/deploy.rb'
 
 # GIT STUFF
 # Undo a `git push`
