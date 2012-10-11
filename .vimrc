@@ -64,6 +64,7 @@ set backspace=indent,eol,start "fix backspace for vim in cygwin
 "map <F1> :NERDTreeToggle<CR>
 map <F1> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
+let g:NERDTreeDirArrows=0  "fixes arrows per http://is.gd/dGFXIP
 "close vim if the only window left open is a NERDTree:
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "open a NERDTree automatically when vim starts up if no files were specified:
