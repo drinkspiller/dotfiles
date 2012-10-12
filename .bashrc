@@ -59,6 +59,7 @@ alias desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias delsvn='find ./ -name ".svn" -0 | xargs -0 rm -Rf'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 rm -Rf'
+alias mysqlsock='mysqladmin variables | grep sock'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
