@@ -37,7 +37,7 @@ alias deploy='vim ./config/deploy.rb'
 # GIT STUFF
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
-alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git"
+alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git && reload"
 alias df_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.git"
 alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
