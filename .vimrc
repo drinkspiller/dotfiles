@@ -59,6 +59,12 @@ set pastetoggle=<F2>
 set notitle
 set backspace=indent,eol,start "fix backspace for vim in cygwin
 
+" via http://stackoverflow.com/questions/3785628/format-ruby-code-in-vim
+if has("autocmd")
+  filetype indent on
+endif
+
+
 " NERDTREE
 map <F1> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
