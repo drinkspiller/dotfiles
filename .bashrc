@@ -11,7 +11,7 @@ fi
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
-alias ll='ls -al'
+alias ll='ls -alh'
 alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|    /'"'"''
 
 # List only directories
@@ -41,7 +41,7 @@ alias deploy='vim ./config/deploy.rb'
 # GIT STUFF
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
-alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git"
+alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git && reload"
 alias df_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.git"
 alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
@@ -63,6 +63,7 @@ alias desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias delsvn='find ./ -name ".svn" -0 | xargs -0 rm -Rf'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 rm -Rf'
+alias mysqlsock='mysqladmin variables | grep sock'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
