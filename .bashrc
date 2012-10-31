@@ -43,6 +43,10 @@ alias deploy='vim ./config/deploy.rb'
 alias undopush="git push -f origin HEAD^:master"
 alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git && reload"
 alias df_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.git"
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
 alias vi='/usr/bin/vim'
