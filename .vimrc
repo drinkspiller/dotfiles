@@ -47,7 +47,6 @@ command Q q
 " Yank from cursor to end of line
 nnoremap Y y$
 
-"#####################################
 syntax on
 "colorscheme murphy
 colorscheme Tomorrow-Night
