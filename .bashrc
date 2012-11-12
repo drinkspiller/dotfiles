@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 ##############################
@@ -18,7 +18,6 @@ alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/
 alias lsd='ls -l | grep "^d"'
 
 # Always use color output for `ls`
-
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     export CLICOLOR=1
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -46,12 +45,14 @@ alias df_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.gi
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+if [ -f ~/.git-prompt.sh ]; then
+  . ~/.git-prompt.sh
+fi
 
 alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
 alias vi='/usr/bin/vim'
 alias vimi='vim -c start' #start vim in insert mode
-
 
 #per platform hosts alias
 if [ -f /cygdrive/c/Windows/System32/drivers/etc/hosts ]; then
@@ -90,7 +91,7 @@ export PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 #prompt:
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\][ \w ]\[\033[m\] $ "
+export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\][ \w ]$(__git_ps1 "(%s)")\[\033[m\] $ '
 
 ##############################
 # FUNCTIONS
