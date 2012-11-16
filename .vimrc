@@ -63,6 +63,7 @@ if has("autocmd")
   filetype indent on
 endif
 
+let g:user_zen_leader_key = '<c-m>'
 
 " NERDTREE
 map <F1> :NERDTreeTabsToggle<CR>
