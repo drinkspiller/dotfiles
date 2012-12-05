@@ -67,6 +67,7 @@ endif
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 map <f5> :make %<cr>
+let g:user_zen_leader_key = '<c-m>'
 
 " NERDTREE
 map <F1> :NERDTreeTabsToggle<CR>
