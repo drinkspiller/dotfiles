@@ -42,6 +42,7 @@ alias deploy='vim ./config/deploy.rb'
 alias undopush="git push -f origin HEAD^:master"
 alias df_pull="git pull https://drinkspiller@github.com/drinkspiller/dotfiles.git && reload"
 alias df_push="git push https://drinkspiller@github.com/drinkspiller/dotfiles.git"
+alias gittree='git log --graph --full-history --all --color  --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
