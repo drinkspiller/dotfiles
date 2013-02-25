@@ -1,4 +1,5 @@
 "set some junk
+set nocompatible
 set autoindent " Copy indent from last line when starting new line.
 "set cursorline " Highlight current line
 set encoding=utf-8 nobomb " BOM often causes trouble
@@ -63,6 +64,9 @@ if has("autocmd")
   filetype indent on
 endif
 
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+map <f5> :make %<cr>
 let g:user_zen_leader_key = '<c-m>'
 
 " NERDTREE
@@ -91,4 +95,9 @@ endfunction
 
 " run pathogen
 call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+filetype off
+syntax on
+filetype plugin indent on
+
 set t_Co=256
