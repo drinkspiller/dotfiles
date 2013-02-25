@@ -7,3 +7,12 @@
 [color]
 	ui = true
 	ui = true
+[diff]
+        tool = kdiff3
+        guitool = kdiff3
+
+[difftool]
+        prompt = false
+
+[difftool "kdiff3"]
+        path = /home/sgiordano/difftool-kdiff3.sh
