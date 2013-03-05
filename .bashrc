@@ -69,7 +69,7 @@ alias Desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias delsvn='echo ">> recursively removing .svn folders from" pwd && rm -rf `find . -type d -name .svn`'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
-alias delThumbsDb='find . -name "*.db" -exec rm {} \'
+alias delThumbsDb='find . -name "*.db" -exec rm {} \;'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 rm -Rf'
 alias mysqlsock='mysqladmin variables | grep sock'
 
