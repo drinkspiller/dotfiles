@@ -54,6 +54,7 @@ alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
 alias vi='/usr/bin/vim'
 alias vimi='vim -c start' #start vim in insert mode
+alias explorethis='cmd.exe /c start .'
 
 #per platform hosts alias
 if [ -f /cygdrive/c/Windows/System32/drivers/etc/hosts ]; then
@@ -68,6 +69,7 @@ alias Desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
 alias delsvn='echo ">> recursively removing .svn folders from" pwd && rm -rf `find . -type d -name .svn`'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
+alias delThumbsDb='find . -name "*.db" -exec rm {} \'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 rm -Rf'
 alias mysqlsock='mysqladmin variables | grep sock'
 
