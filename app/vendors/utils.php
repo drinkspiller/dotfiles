@@ -30,7 +30,7 @@
 	" eighteen",
 	" nineteen"
 	);
-	
+
 	$tens = array(
 	"",
 	"",
@@ -43,7 +43,7 @@
 	" eighty",
 	" ninety"
 	);
-	
+
 	$triplets = array(
 	"",
 	" thousand",
@@ -107,7 +107,7 @@ function titleCase($string) {
 	$last= "";
 	$new= "";
 	$string=strtoupper($string);
-	
+
 	while ($i<$len):
 		$char=substr($string,$i,1);
 		if (ereg( "[A-Z]",$last)):
@@ -118,9 +118,9 @@ function titleCase($string) {
 		$last=$char;
 		$i++;
 	endwhile;
-	
+
 	return($new);
-}; 
+};
 
 function rmdir_recurse($sDir) {
     if (is_dir($sDir)) {
@@ -147,7 +147,7 @@ function in_arrayr($needle, $haystack, &$found = false) {
 	  $this->in_arrayr($needle, $v, $found);
 	}
     }
-   
+
     return $found;
 }
 
@@ -155,7 +155,7 @@ function in_arrayr($needle, $haystack, &$found = false) {
 function byteConvert(&$bytes){
     $s = array('B', 'Kb', 'MB', 'GB', 'TB', 'PB');
     $e = floor(log($bytes)/log(1024));
-   
+
     return sprintf('%.2f '.$s[$e], ($bytes/pow(1024, floor($e))));
 }
 
@@ -180,12 +180,12 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 			}
 		}
 	}
-        
+
 	//if we have good files...
 	if(count($valid_files)) {
 		//create the archive
 		$zip = new ZipArchive();
-		$zip->open($destination, ZIPARCHIVE::OVERWRITE); 
+		$zip->open($destination, ZIPARCHIVE::OVERWRITE);
 		//if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
 		//	return false;
 		//}
@@ -195,7 +195,7 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 		}
 		//debug
 		# echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
-	        # echo "<br /> dest: " . $destination;	
+	        # echo "<br /> dest: " . $destination;
 		//close the zip -- done!
 		$zip->close();
 		//check to make sure the file exists

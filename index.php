@@ -33,6 +33,7 @@
 	define('ROOT', dirname(__FILE__));
 	define('WEBROOT_DIR', 'webroot');
 	define('WWW_ROOT', ROOT . DS . APP_DIR . DS . WEBROOT_DIR . DS);
+
 /**
  * This only needs to be changed if the cake installed libs are located
  * outside of the distributed directory structure.

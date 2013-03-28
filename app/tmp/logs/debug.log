@@ -1244,3 +1244,8 @@
 2012-08-30 17:51:04 Notice: Notice (8): Undefined variable: fileName in [APP/controllers/assets_controller.php, line 294]
 2012-08-30 17:51:04 Notice: Notice (8): Undefined index:  in [APP/controllers/assets_controller.php, line 294]
 2012-09-24 08:35:37 Notice: Notice (8): Undefined index:  in [APP/controllers/assets_controller.php, line 433]
+2013-03-28 12:27:38 Notice: Notice (8): Undefined offset: -9223372036854775808 in [APP/vendors/utils.php, line 159]
+2013-03-28 12:27:41 Notice: Notice (8): Undefined offset: -9223372036854775808 in [APP/vendors/utils.php, line 159]
+2013-03-28 12:28:21 Notice: Notice (8): Undefined offset: -9223372036854775808 in [APP/vendors/utils.php, line 159]
+2013-03-28 12:29:55 Notice: Notice (8): Undefined offset: -9223372036854775808 in [APP/vendors/utils.php, line 160]
+2013-03-28 15:51:48 Notice: Notice (8): Uninitialized string offset: 0 in [CORE/cake/libs/view/view.php, line 792]

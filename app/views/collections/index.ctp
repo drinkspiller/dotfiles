@@ -1,6 +1,6 @@
 <?
     //debug($collections);
-    echo $javascript->	link(array  (	'jquery-1.3.2.min.js',
+    echo $javascript->link(array  (	'jquery-1.3.2.min.js',
                                         'jquery.colorize-1.4.0.js',
                                         'main.js'
                                         ),
@@ -25,10 +25,28 @@
 ?></p>
 
 <?php
-    $s3usage= shell_exec ("s3cmd --config=/home/deploy/.s3cfg du s3://cbdam 2>&1");
-    $s3usage = explode(" ", $s3usage);
-    echo "<h3>Total S3 Usage: " . byteConvert($s3usage[0]) . "</h3>";
+    //$s3usage= shell_exec ("s3cmd --config=/home/deploy/.s3cfg du s3://cbdam 2>&1");
+    //$s3usage = explode(" ", $s3usage);
+    //echo "";
 ?>
+<script>
+  var SizePrefixes = ' KMGTPEZYXWVU';
+  function GetHumanSize(size) {
+    if(size <= 0) return '0';
+    var t2 = Math.min(Math.round(Math.log(size)/Math.log(1024)), 12);
+    return (Math.round(size * 100 / Math.pow(1024, t2)) / 100) +
+      SizePrefixes.charAt(t2).replace(' ', '') + 'B';
+  }
+
+  $(function() {
+    $.get('/collections/getS3', function(data, textStatus, xhr) {
+      $(".s3_total").html(GetHumanSize(parseInt(data)));
+    });
+  });
+
+
+</script>
+<h3>Total S3 Usage: <span class="s3_total"><?php echo $html->image("ajax-loader.gif")?></span></h3>
 <table cellpadding="0" cellspacing="0"  id="collections_tbl" class="alt_color_table">
 <tr>
 	<th><?php echo $paginator->sort('name');?></th>

@@ -42,6 +42,8 @@
  */
 //EOF
 
+date_default_timezone_set('America/Chicago');
+
 //CONSTANTS
 define('SECONDS_IN_A_DAY', 86400);
 define('COMPANY_NAME', 'Cannonball');
@@ -65,11 +67,11 @@ define('BUCKET', 'cbdam');
 //FIREPHP SETUP
 ob_start();
 App:: import ( 'Vendor', 'FirePHP', array ( 'file' => 'FirePHP.class.php'));
-function fb() 
+function fb()
 {
   $instance = FirePHP::getInstance(true);
   $args = func_get_args();
   return call_user_func_array(array($instance,'fb'),$args);
   return true;
-}  
+}
 ?>
