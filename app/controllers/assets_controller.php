@@ -395,11 +395,12 @@ class AssetsController extends AppController {
                 chmod($tmp_dir, 777);
             }
             $tmp_file = '/tmp/assets/' . pathinfo($asset, PATHINFO_BASENAME);
+
             array_push($files_to_zip, $tmp_file);
             $s3 = new AmazonS3();
             $s3->get_object(BUCKET, $asset, array('fileDownload' => $tmp_file));
-            $filepath = realpath('.');
-            $filepath .= DS . $asset;
+            // $filepath = realpath('.');
+            // $filepath .= DS . $asset;
         }
 
         $zip_base = time() . '.zip';

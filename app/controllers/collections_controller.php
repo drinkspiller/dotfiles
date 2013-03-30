@@ -62,11 +62,16 @@ class CollectionsController extends AppController {
 
 function getS3(){
 	Configure::write('debug', '0');  //disable debug writing to keep ajax response clean
-  $s3usage= shell_exec ("/usr/local/bin/s3cmd --config=/Users/sgiordano/.s3cfg du s3://cbdam 2>&1");
+	$s3configfile = ($_SERVER["HTTP_HOST"]== "media.cannonballagency.com") ? "/home/deploy/.s3cfg" : "/Users/sgiordano/.s3cfg";
+  $s3usage= shell_exec ("/usr/local/bin/s3cmd --config=" . $s3configfile .  " du s3://cbdam 2>&1");
 	$s3usage = explode(" ", $s3usage);
 	echo $s3usage[0];
   $this->autoRender = false;
   $this->layout = 'nolayout';
+}
+
+function test2 (){
+	phpinfo();
 }
 
 

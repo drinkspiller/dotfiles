@@ -67,7 +67,7 @@ function downloadSelected(){
 
 function dl_multi_result(data, textStatus, XMLHttpRequest){
     var dest = data;
-    $("#assets_tbl").before(data);
+    //$("#assets_tbl").before(data);
     // debugger;
     //console.log(dest);
     window.location = dest;

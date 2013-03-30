@@ -194,8 +194,8 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 			$zip->addFile($file, 'assets/' . pathinfo($file, PATHINFO_BASENAME));
 		}
 		//debug
-		# echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
-	        # echo "<br /> dest: " . $destination;
+		//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status; die();
+	  //echo "<br /> dest: " . $destination; die()
 		//close the zip -- done!
 		$zip->close();
 		//check to make sure the file exists
