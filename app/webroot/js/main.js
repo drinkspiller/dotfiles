@@ -9,7 +9,7 @@ $(document).ready(function(){
     //configure event handlers
     $('.delete_selected').click(deleteSelected);
     $('.download_selected').click(downloadSelected);
-    
+
     //round corners
    // $('.rounded').corner('10px top');
    // $('#content').corner('30px');
@@ -29,7 +29,7 @@ function deleteSelected(){
 		var id = pieces[pieces.length-1];
 		delete_multi += "/" + id;
 	    });
-	    
+
 	    window.location = delete_multi;
 	}
     } else{
@@ -43,12 +43,12 @@ function downloadSelected(){
         $("#dl_multi_form").remove();
         $("body").append("<form id='dl_multi_form' method='post'></form>");
         $("#dl_multi_form").attr("action", download_multi);
-        
+
         $(".colorize_selected_row td a[class*='filename_list']").each(function(){
             var dl_asset = $("#collection_id").val() + $("#access_code").val() + "/" + $(this).text();
             $("#dl_multi_form").append('<input type="hidden" name="assets[]" value="' + dl_asset + '" />')
         });
-        
+
         $("#file_prep_trigger").trigger('click');
         //*
         $.ajax({
@@ -58,7 +58,7 @@ function downloadSelected(){
             success: dl_multi_result
         });
         //*/
-        
+
       //$("#dl_multi_form").submit();
     } else{
         alert('Sorry, fewer than two files have been selected. Click on the FILE ICON for each asset you\'d like to download then click the "Download Multiple" button. All selected files will be bundled into a single .ZIP archive.');
@@ -67,7 +67,8 @@ function downloadSelected(){
 
 function dl_multi_result(data, textStatus, XMLHttpRequest){
     var dest = data;
-    //debugger;
+    $("#assets_tbl").before(data);
+    // debugger;
     //console.log(dest);
     window.location = dest;
     tb_remove();

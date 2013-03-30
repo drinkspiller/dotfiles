@@ -1,10 +1,10 @@
 <?
     App::import('Vendor', 'AWS_SDK', array('file' => 'aws-sdk-1.5.3'.DS.'sdk.class.php'));
-   
-   
+
+
    //NOTE:  $scalable_extensions, $qt_extensions and $direct_dowload_extensions defined in app_controller.php
    //debug($assets);
-   
+
     App::Import('Vendor', 'utils');
     echo $javascript->	codeBlock   (	"var asset_folder = '" . ASSET_UPLOAD_PATH . "';",
                                         array('inline'=>false)
@@ -26,7 +26,7 @@
     echo $html->css('thickbox', null, null, false);
     $paginator->options(array('url' => $this->passedArgs));
 ?>
-<? if($session->read('currentuser')): ?>   
+<? if($session->read('currentuser')): ?>
 <script type="text/javascript">
    var last_order;
    $(document).ready(function() {
@@ -38,14 +38,14 @@
 				    onDrop: function(tbl, row){
 				       // only remove selection if order has changed
 				       if(last_order != $.tableDnD.serialize()){
-					  setTimeout("$(row).removeClass('colorize_selected_row')", 150);
-					  zebraStripe();
+					       setTimeout("$(row).removeClass('colorize_selected_row')", 150);
+					       zebraStripe();
 				       }
-				       
-				       if(console) console.log($.tableDnD.serialize());
+
+				       //if(console) console.log($.tableDnD.serialize());
 				       $.post('/assets/sequence/', $.tableDnD.serialize(), function(data) {
-					  if(console) console.log("AJAX RETURNED: " + data);
-					});
+					       // if(console) console.log("AJAX RETURNED: " + data);
+					   });
 				    }
 				 });
    });
@@ -59,7 +59,7 @@
    #TB_ajaxContent img{
       margin: 10px 0;
    }
-   
+
    #TB_ajaxContent{
       text-align: center;
    }
@@ -70,15 +70,15 @@
         margin: 15px 0;
         padding: 20px;
     }
-    
+
     #dropzone{
-        display: none;    
+        display: none;
     }
-    
+
     .dropzone_over{
         background-color: #e3fee2;
     }
-    
+
     .upload{
         width: 500px;
         height: 30px;
@@ -88,7 +88,7 @@
         margin: 5px 0;
         font-size: 11px;
     }
-    
+
     .progress_bar{
         width: 100%;
         height: 3px;
@@ -103,7 +103,7 @@
 
     <dl><?php $i = 0; $class = ' class="altrow"';?>
 	<input type="hidden" name="collection_id" id="collection_id" value="<?= $collection['Collection']['id']; ?>" />
-	
+
 	<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Access Code'); ?></dt>
 	<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 	    <?php echo $collection['Collection']['access_code']; ?>
@@ -150,7 +150,7 @@
 	?>
     </div>
     <?php endif; */?>
-    
+
     <div id="dropzone">
         Drag Files Here and Drop to Upload
     </div>
@@ -183,7 +183,7 @@ foreach ($assets as $asset):
 																'action'=>'view',
 																$asset['Asset']['id'],
 																$collection['Collection']['access_code']
-														), 
+														),
 											array   (   'class'=>'filename_list',
 												    'title'=> $collection['Collection']['name'] . ": " . $basename
 												)
@@ -216,32 +216,32 @@ foreach ($assets as $asset):
         ?>
 	    <a href="<?= $download_link ?>" class="download_btn" title="Download">Download</a>
 	    <?php
-		
+
 		echo $html->link  (__('View', true), 	array   (   'controller'=> 'assets',
 									'action'=>'view',
 									$asset['Asset']['id'],
 									$collection['Collection']['access_code']
-								    ), 
+								    ),
 							    array   (   'class'=>'',
 									'title'=> $collection['Collection']['name'] . ": " . $basename
 								    )
 				    );
-		
+
 		/*/
 		$extension = getFileExtension($asset['Asset']['name']);
 		if(in_array($extension, $direct_dowload_extensions)){
 		    echo $html->link(   'Download',
 					htmlentities(ASSET_REL_PATH . $asset['Asset']['name']),
 					array('class'=>'')
-				);	
+				);
 		} else {
 		    echo $html->link(   'Download',
 					array('action'=>'download', 'controller'=> 'assets', htmlentities(ASSET_REL_PATH . $asset['Asset']['name'])),
 					array('class'=>'')
-				    );	
+				    );
 		}
 		//*/
-	
+
 
 	    ?>
 	    <? if($session->read('currentuser')): ?>
@@ -272,7 +272,7 @@ foreach ($assets as $asset):
       <h2>Preparing Files</h2>
       Please wait while we prepare your files for download. This may take several minutes depending on the size of the files.<br />
       <img src="/img/ajax-loader.gif" width="32" height="22" alt="Please wait..." title="Please wait..." />
-      
+
    </div>
 </div>
 <a href="#TB_inline?height=155&width=300&inlineId=preparing_files_for_download&modal=false" id="file_prep_trigger" class="thickbox"></a>
