@@ -1,3 +1,4 @@
-webroot/assets/*
-tmp/logs/*
+tmp/*
+app/webroot/assets/*
+app/tmp/*
 sftp-config.json
