@@ -17,11 +17,13 @@
 [difftool "kdiff3"]
         path = /home/sgiordano/difftool-kdiff3.sh
 [alias]
-	unstage = reset HEAD
+	unstage = reset HEAD --
 	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+        # merges
         mine   = "!f() { git checkout --ours $@ && git add $@; }; f"
         ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+        
         theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	assume = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
@@ -39,3 +41,7 @@
         cma = commit -a -m
         ca = commit --amend
         amend = commit --amend
+	last = log -1 HEAD
+        
+        #list remotes
+        rem="!git config -l | grep remote.*url | tail -n +2"
