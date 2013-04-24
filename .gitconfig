@@ -38,7 +38,7 @@
         co = checkout
         br = branch 
         cm = commit -m
-        cma = commit -a -m
+        cma = commit -am
         ca = commit --amend
         amend = commit --amend
 	last = log -1 HEAD
