@@ -49,6 +49,43 @@ fi
 if [ -f ~/.git-prompt.sh ]; then
   . ~/.git-prompt.sh
 fi
+function gpull()
+{
+  if [ -z "$2" ]; then
+    BRANCH=$(git branch | grep "*" | awk '{print $2}')
+  else
+    BRANCH=$2
+  fi
+
+  if [ -z "$1" ]; then
+    REMOTE='origin'
+  else
+    REMOTE=$1
+  fi
+
+  CMD="git pull $REMOTE $BRANCH"
+  echo $CMD
+  $CMD  
+}
+
+function gpush()
+{
+  if [ -z "$2" ]; then
+    BRANCH=$(git branch | grep "*" | awk '{print $2}')
+  else
+    BRANCH=$2
+  fi
+
+  if [ -z "$1" ]; then
+    REMOTE='origin'
+  else
+    REMOTE=$1
+  fi
+
+  CMD="git push $REMOTE $BRANCH"
+  echo $CMD
+  $CMD  
+}
 
 alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
