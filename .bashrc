@@ -17,6 +17,10 @@ alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
+#colors for grep:
+export GREP_OPTIONS="--color=always"
+alias less="less -R"
+
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     export CLICOLOR=1
