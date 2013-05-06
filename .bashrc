@@ -21,6 +21,10 @@ alias lsd='ls -l | grep "^d"'
 export GREP_OPTIONS="--color=always"
 alias less="less -R"
 
+
+#flush nginx page speed cache
+alias psflush='sudo touch /var/ngx_pagespeed_cache/cache.flush'
+
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     export CLICOLOR=1
