@@ -17,6 +17,14 @@ alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
+#colors for grep:
+export GREP_OPTIONS="--color=always"
+alias less="less -R"
+
+
+#flush nginx page speed cache
+alias psflush='sudo touch /var/ngx_pagespeed_cache/cache.flush'
+
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     export CLICOLOR=1
@@ -49,6 +57,43 @@ fi
 if [ -f ~/.git-prompt.sh ]; then
   . ~/.git-prompt.sh
 fi
+function gpull()
+{
+  if [ -z "$2" ]; then
+    BRANCH=$(git branch | grep "*" | awk '{print $2}')
+  else
+    BRANCH=$2
+  fi
+
+  if [ -z "$1" ]; then
+    REMOTE='origin'
+  else
+    REMOTE=$1
+  fi
+
+  CMD="git pull $REMOTE $BRANCH"
+  echo $CMD
+  $CMD  
+}
+
+function gpush()
+{
+  if [ -z "$2" ]; then
+    BRANCH=$(git branch | grep "*" | awk '{print $2}')
+  else
+    BRANCH=$2
+  fi
+
+  if [ -z "$1" ]; then
+    REMOTE='origin'
+  else
+    REMOTE=$1
+  fi
+
+  CMD="git push $REMOTE $BRANCH"
+  echo $CMD
+  $CMD  
+}
 
 alias komodo='open -a "Komodo IDE"'
 alias reload='. ~/.bashrc'
