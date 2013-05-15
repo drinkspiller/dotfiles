@@ -35,3 +35,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+
+export TWITTER_CONSUMER_KEY=RHyGrGL26pEjKZV56eZZg
+export TWITTER_CONSUMER_SECRET=bggVqMyBhyH11AyDrLu6zEmySHaZsKu9YwsTQSqGQ
+export TWITTER_OAUTH_TOKEN=Bn6OeiFrhQQ7V3S1rdcQNaDFsiQ1LSOzBsra1Dsps
+export TWITTER_OAUTH_TOKEN_SECRET=VZS08htSdz157iMGFod5udupthciupAXyYIRHBCS5k

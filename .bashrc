@@ -151,8 +151,13 @@ function md() {
 
 
 # find shorthand
-function f() {
-    find . -name "$1"
+function ff() {
+       sudo find . -name "$1" -printf '\033[32m%p\033[0m\n' 
+}
+
+
+function ff() {
+       sudo find / -name "$1" -printf '\033[32m%p\033[0m\n' 
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
