@@ -36,9 +36,9 @@ else
     alias ls="command ls --color"
 fi
 
-if [[ "$OSTYPE" == cygwin ]]; then
-  alias gem='C:/\Ruby193/\bin/\gem'
-fi
+# if [[ "$OSTYPE" == cygwin ]]; then
+#   alias gem='C:/\Ruby193/\bin/\gem'
+# fi
 
 
 #RUBY SHORTCUTS
