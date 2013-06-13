@@ -151,7 +151,7 @@ function md() {
 
 
 # find shorthand
-function ff() {
+function f() {
        sudo find . -name "$1" -printf '\033[32m%p\033[0m\n' 
 }
 
