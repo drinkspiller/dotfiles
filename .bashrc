@@ -105,9 +105,9 @@ alias explorethis='cmd.exe /c start .'
 if [ -f /cygdrive/c/Windows/System32/drivers/etc/hosts ]; then
     alias hosts='vim /cygdrive/c/Windows/System32/drivers/etc/hosts'
 elif [ -f /private/etc/hosts ]; then
-    alias hosts='vim /private/etc/hosts'
+    alias hosts='sudo vim /private/etc/hosts'
 elif [ -f /etc/hosts ]; then
-    alias hosts='vim /etc/hosts'
+    alias hosts='sudo vim /etc/hosts'
 fi
 
 alias Desktop='cd /cygdrive/c/Users/sgiordano/Desktop'
