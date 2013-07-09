@@ -36,9 +36,9 @@ else
     alias ls="command ls --color"
 fi
 
-if [[ "$OSTYPE" == cygwin ]]; then
-  alias gem='C:/\Ruby193/\bin/\gem'
-fi
+# if [[ "$OSTYPE" == cygwin ]]; then
+#   alias gem='C:/\Ruby193/\bin/\gem'
+# fi
 
 
 #RUBY SHORTCUTS
@@ -152,7 +152,12 @@ function md() {
 
 # find shorthand
 function f() {
-    find . -name "$1"
+       sudo find . -name "$1" -printf '\033[32m%p\033[0m\n' 
+}
+
+
+function ff() {
+       sudo find / -name "$1" -printf '\033[32m%p\033[0m\n' 
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
