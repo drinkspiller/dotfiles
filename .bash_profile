@@ -18,7 +18,5 @@ test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
-# MacPorts Installer addition on 2012-08-22_at_21:25:41: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
+#HOMEBREW COMPLETION
+source `brew --repository`/Library/Contributions/brew_bash_completion.sh

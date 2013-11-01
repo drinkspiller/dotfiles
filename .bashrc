@@ -122,13 +122,13 @@ alias mysqlsock='mysqladmin variables | grep sock'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
+alias macrefreshdns="sudo killall -HUP mDNSResponder"
 
 ##############################
 # PATH
 #############################
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:$PATH"
 export PATH
 
 
