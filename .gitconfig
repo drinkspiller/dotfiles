@@ -1,52 +1,54 @@
 [user]
-	name = Skye Giordano
+	name = Skye
 	email = github@syntax101.com
+
 [credential]
 	helper = cache
-[core]
+
 [color]
 	ui = true
-	ui = true
+
 [diff]
-        tool = kdiff3
-        guitool = kdiff3
+  tool = kdiff3
+  guitool = kdiff3
 
 [difftool]
-        prompt = false
+  prompt = false
 
-[difftool "kdiff3"]
-        path = /home/sgiordano/difftool-kdiff3.sh
 [alias]
-	unstage = reset HEAD --
+	add-commit = !git add -u && git commit -m
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	add-commit = !git add -u && git commit -m
+	ac = add-commit
+  amend = commit --amend
+  ammend = commit --amend
+	assume = update-index --assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+  br = branch
+  ca = commit --amend
+  ci = commit
+  cl = clone
+  cm = commit -m
+  co = checkout
+  cma = commit -am
+  lasttag = describe --tags --abbrev=0
+  la = config --get-regexp alias
+	last = log -1 HEAD
 	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
-        # merges
-        #mine   = "!f() { git checkout --ours $@ && git add $@; }; f"
-        #ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
-        mine  = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --ours -- $files; git add -u $files; }; f"
-        theirs = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --theirs -- $files; git add -u $files; }; f"
-        
-        theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-        assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-	assume = update-index --assume-unchanged
+  lt = describe --tags --abbrev=0
+  mine  = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --ours -- $files; git add -u $files; }; f"
+  rem="!git config -l | grep remote.*url | tail -n +2" #list remotes
+  st = status
+  theirs = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --theirs -- $files; git add -u $files; }; f"
 	unassume = update-index --no-assume-unchanged
-        unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
-        assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-        lasttag = describe --tags --abbrev=0
-        lt = describe --tags --abbrev=0
-        la = config --get-regexp alias
-        st = status
-        cl = clone
-        ci = commit
-        co = checkout
-        br = branch 
-        cm = commit -m
-        cma = commit -am
-        ca = commit --amend
-        amend = commit --amend
-	last = log -1 HEAD
-        
-        #list remotes
-        rem="!git config -l | grep remote.*url | tail -n +2"
+  unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+	unstage = reset HEAD --
+
 [http]
+	cookiefile = /Users/skyebot/.gitcookies
 	sslVerify = false
+
+[core]
+	excludesfile = ~/.gitignore
