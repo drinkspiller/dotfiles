@@ -35,7 +35,7 @@ mv $HOME/.bashrc "$HOME/.bashrc_$(date +'%m-%d-%Y_%T')"
 
 # Set macOS preferences
 # Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write -g AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -124,3 +124,5 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+killall Finder

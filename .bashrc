@@ -38,10 +38,10 @@ alias delsvn='echo ">> recursively removing .svn folders from" pwd && rm -rf `fi
 alias delThumbsDb='find . -name "*.db" -exec rm {} \;'
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=always'
+alias fgrep='fgrep --color=always'
 alias gwd='cd `cat ~/.cwd`'
-alias grep='grep --color=auto'
+alias grep='grep --color=always'
 alias howdoi='howdoi -c'
 alias less="less -R"
 # List a recursive tree.
@@ -148,6 +148,16 @@ PROMPT_COMMAND="$PROMPT_COMMAND; [ -d $HOME/.history ] || mkdir -p $HOME/.histor
 cl_num() {
   p4 -F'%change%' changes -s pending -c "$(p4 -F'%clientName%' info)"
 }
+
+function historyrange () {
+  if [[ -z "$1" ||  -z "$2" ]]
+    then
+      echo -e "Two parameters are required. Example usage:\nhistoryrange <search term> <# of lines to show before and after match>"
+    return
+  fi
+  history | grep -i -B "$2" -A "$2" "$1"
+}
+
 
 function gpull() {
   if [ -z "$2" ]; then
