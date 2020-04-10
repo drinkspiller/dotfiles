@@ -1,23 +1,9 @@
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 ##############################
 # Mac only aliases
 #############################
 if [[ $(uname -a) =~ ^Darwin ]]; then
   alias chrome='open -a "Google Chrome"'
+  alias iplocal="ipconfig getifaddr en0"
   alias ls='/usr/local/bin/lsd'
   alias ll='ls -alF'
   alias mysql='mysqlsh --sql'
@@ -32,7 +18,7 @@ fi
 #############################
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
   alias ll='ls -alhF --color'
-  alias open='nautilus'
+  alias open='xdg-open'
 fi
 
 ##############################
@@ -43,19 +29,32 @@ alias ...="cd ../../"
 alias ....="cd ../../../"
 alias ......="cd ../../../../../"
 alias .....="cd ../../../../"
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 rm -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 rm -Rf'
 alias delsvn='echo ">> recursively removing .svn folders from" pwd && rm -rf `find . -type d -name .svn`'
 alias delThumbsDb='find . -name "*.db" -exec rm {} \;'
-alias g5submit='git5 submit --sq --tap-options=email --tap-project=aw3_dab,aw3_dab_html5tests'
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 alias gwd='cd `cat ~/.cwd`'
+alias grep='grep --color=auto'
 alias howdoi='howdoi -c'
 alias less="less -R"
 # List a recursive tree.
 alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|    /'"'"''
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
 alias reload='. ~/.bashrc'
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
 alias vi='/usr/bin/vim'
 alias vimi='vim -c start' #start vim in insert mode
+# Get week number
+alias week='date +%V'
 alias ydiff='ydiff -s'
 
 # IP addresses
@@ -79,6 +78,20 @@ fi
 ##############################
 # BASH Customization
 #############################
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -226,13 +239,22 @@ function killport() {
   kill -9 $(lsof -t -i:$1)
 }
 
+# Create a data URL from a file
+function dataurl() {
+	local mimeType=$(file -b --mime-type "$1");
+	if [[ $mimeType == text/* ]]; then
+		mimeType="${mimeType};charset=utf-8";
+	fi
+	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}
+
 ##############################
 # CONFIG
 #############################
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+  [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 fi
 
 if [ -f ~/.git-completion.bash ]; then
