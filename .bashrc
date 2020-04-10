@@ -257,9 +257,13 @@ if [[ ! $(uname -a) =~ ^Darwin ]]; then
   [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 fi
 
+# via https://askubuntu.com/a/540230
+alias g='git'
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+complete -o default -o nospace -F _git g
+
 if [ -f ~/.git-prompt.sh ]; then
   . ~/.git-prompt.sh
 fi

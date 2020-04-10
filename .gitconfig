@@ -8,12 +8,25 @@
 [color]
 	ui = true
 
-[diff]
-  tool = kdiff3
-  guitool = kdiff3
+diff]
+  tool = meld
 
 [difftool]
   prompt = false
+
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+
+[merge]
+  tool = meld
+
+[mergetool]
+  prompt = false
+
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 
 [alias]
 	add-commit = !git add -u && git commit -m
@@ -39,8 +52,10 @@
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
   lt = describe --tags --abbrev=0
   mine  = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --ours -- $files; git add -u $files; }; f"
+  rao = remote add origin
   rem="!git config -l | grep remote.*url | tail -n +2" #list remotes
   st = status
+  stt = status -uno # show status only for tracked files
   theirs = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --theirs -- $files; git add -u $files; }; f"
 	unassume = update-index --no-assume-unchanged
   unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"

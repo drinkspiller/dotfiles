@@ -1,5 +1,7 @@
 # brew faq: https://docs.brew.sh/FAQ
 # most popular formulae: https://formulae.brew.sh/analytics/
+# Search for brews at: https://formulae.brew.sh/formula/
+# Search for casks at: https://formulae.brew.sh/cask/
 
 # Repositories — see https://docs.brew.sh/Taps
 # brew tap adds more repositories to the list of formulae that brew tracks,
@@ -13,7 +15,6 @@ tap 'homebrew/bundle'
 tap 'homebrew/services'
 
 # Core Homebrew
-# For more info, search for a brew on: https://formulae.brew.sh/formula/
 brew 'cmake' #Tool for browsing source code
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'cscope' #Tool for browsing source code
@@ -66,7 +67,6 @@ brew 'ydiff'
 # Cask Apps
 # Brew cask is an extension to brew that allows management of graphical
 # applications through the Cask project.
-# For more info, search for casks on: https://formulae.brew.sh/cask/
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-roboto-condensed'
@@ -75,7 +75,7 @@ cask 'google-chrome'
 cask 'google-cloud-sdk'
 cask 'iterm2'
 cask 'java'
-cask 'kdiff3'
+cask 'meld'
 cask 'osxfuse'
 cask 'qlcolorcode'
 cask 'qlimagesize'
