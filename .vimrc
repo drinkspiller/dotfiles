@@ -73,6 +73,7 @@ let g:user_zen_leader_key = '<c-m>'
 map <F1> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:NERDTreeDirArrows=0  "fixes arrows per http://is.gd/dGFXIP
+let NERDTreeShowHidden=1
 
 "Enable and disable mouse use
 set mouse=nvc
