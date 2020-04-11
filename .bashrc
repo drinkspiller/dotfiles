@@ -48,7 +48,6 @@ alias fgrep='fgrep --color=always'
 alias gwd='cd `cat ~/.cwd`'
 alias grep='grep --color=always'
 alias howdoi='howdoi -c'
-alias largest files="du -hsx * | sort -rh | head -20"
 alias less="less -R"
 # List a recursive tree.
 alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|    /'"'"''
