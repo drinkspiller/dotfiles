@@ -23,6 +23,12 @@ brew bundle
 # NVM & Node
 mkdir ~/.nvm
 nvm install --lts
+#NPM Packages
+npm install -g carbon-now-cli
+npm install -g chokidar-cli
+npm install -g fkill
+npm install -g liveserver
+npm install -g ytdl
 
 # Set default MySQL root password and auth type.
 mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"

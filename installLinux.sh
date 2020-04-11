@@ -38,3 +38,10 @@ EOF
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.bashrc
 nvm install --lts
+
+#NPM packages
+npm install -g carbon-now-cli
+npm install -g chokidar-cli
+npm install -g fkill
+npm install -g liveserver
+npm install -g ytdl
