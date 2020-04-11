@@ -15,6 +15,7 @@ sudo bash <<EOF
   apt-get install -y git
   apt-get install -y meld
   apt-get install -y mysql-server
+  apt-get install -y python-gpiozero
   apt-get install -y python3-pip
   apt-get install -y sshfs
   apt-get install -y trash-cli
