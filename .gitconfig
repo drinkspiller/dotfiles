@@ -46,8 +46,8 @@
   lasttag = describe --tags --abbrev=0
   la = config --get-regexp alias
 	last = log -1 HEAD
-	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
-	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+	ls = log --pretty=format:\"%Cblue[%ae]\t %Creset%Cgreen%as  %C(yellow)%h  %Creset%s\" --decorate
+	ll = log --pretty=format:\"%Cblue[%ae]\t %Creset%Cgreen%as  %C(yellow)%h  %Creset%s\" --decorate --stat
   lt = describe --tags --abbrev=0
   mine  = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --ours -- $files; git add -u $files; }; f"
   rao = remote add origin
