@@ -31,9 +31,12 @@ pip3 install pexpect
 pip3 install ydiff
 
 # MISC
-#NVM & Node
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-mkdir ~/.nvm
-nvm install --lts
 
-source ~/.bashrc
+#NVM & Node
+# run this as the user who called the script with sudo, not as root!
+sudo -u $(logname) bash <<EOF
+  echo "Running as $(logname)"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  nvm install --lts
+  source ~/.bashrc
+EOF
