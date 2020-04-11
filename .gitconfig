@@ -8,7 +8,7 @@
 [color]
 	ui = true
 
-diff]
+[diff]
   tool = meld
 
 [difftool]

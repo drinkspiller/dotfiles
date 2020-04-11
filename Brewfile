@@ -53,6 +53,7 @@ brew 'snappy' #Compression/decompression library aiming for high speed
 brew 'sqlite'
 brew 'sshfs'
 brew 'theora' #Open video compression format
+brew 'trash-cli' Move files to macOS's Trash
 brew 'tree' #Display directories as trees (with optional color/HTML output)
 brew 'vim'
 brew 'webp'

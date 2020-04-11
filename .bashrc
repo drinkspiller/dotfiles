@@ -11,14 +11,19 @@ if [[ $(uname -a) =~ ^Darwin ]]; then
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
   alias refreshdns="sudo killall -HUP mDNSResponder"
+  alias trash="trash-put"
+  alias trashls="trash-list"
 fi
 
 ##############################
 # Linux only aliases
 #############################
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
+  alias del="trash-put"
   alias ll='ls -alhF --color'
-  alias open='xdg-open'
+  alias open='gio open'
+  alias trash="trash-put"
+  alias trashls="trash-list"
 fi
 
 ##############################
@@ -48,7 +53,9 @@ alias less="less -R"
 alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|    /'"'"''
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+alias python='python3'
 alias reload='. ~/.bashrc'
+alias rm="echo WHOOPS, Old habits die hard. Use \'del\', \'trash\' or if rm is actually intended, the full path i.e. '/bin/rm'"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 alias vi='/usr/bin/vim'
