@@ -1,6 +1,6 @@
 [user]
-	name = Skye
-	email = github@syntax101.com
+	name = Skye Giordano
+	email = skyebot@google.com
 
 [credential]
 	helper = cache
@@ -36,8 +36,6 @@
   amend = commit --amend
   ammend = commit --amend
 	assume = update-index --assume-unchanged
-  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
   br = branch
   ca = commit --amend
   ci = commit
@@ -57,8 +55,10 @@
   st = status
   stt = status -uno # show status only for tracked files
   theirs = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --theirs -- $files; git add -u $files; }; f"
+  tree = log --graph --full-history --all --color  --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
 	unassume = update-index --no-assume-unchanged
   unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+  undopush = push -f origin HEAD^:master
 	unstage = reset HEAD --
 
 [http]
