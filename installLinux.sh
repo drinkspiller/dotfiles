@@ -19,10 +19,10 @@ sudo bash <<EOF
   apt-get install -y sshfs
   apt-get install -y trash-cli
   apt-get install -y unzip
-  apt-get install -y x264
   apt-get install -y vim
   apt-get install -y vlc
   apt-get install -y vnc4server
+  apt-get install -y x264
   apt-get install -y xclip
   apt-get install -y yarnpkg
 
