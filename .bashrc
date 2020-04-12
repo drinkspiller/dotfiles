@@ -54,7 +54,7 @@ alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias python='python3'
-alias pywatch='watch --silent "**/*.py" -c "python {path}"'
+alias pywatch='watch "**/*.py" -c "pkill -9 python && python {path}"'
 alias reload='. ~/.bashrc'
 alias rm="echo WHOOPS, Old habits die hard. Use \'del\', \'trash\' or if rm is actually intended, the full path i.e. '/bin/rm'"
 # Enable aliases to be sudo’ed
