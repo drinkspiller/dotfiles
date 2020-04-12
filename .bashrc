@@ -24,6 +24,19 @@ if [[ ! $(uname -a) =~ ^Darwin ]]; then
   alias open='gio open'
   alias trash="trash-put"
   alias trashls="trash-list"
+
+  # Alias systemctl as service
+  if [[ $(which systemctl | wc -l) == '1' ]] ; then
+    function service() {
+      if [[ -z "$1" ||  -z "$2" ]]
+        then
+          echo -e "Two parameters are required. Example usage:\n(sudo) service <servce name> <start|stop|restart|enable|disable>"
+        return
+      fi
+
+      systemctl $2 $1
+    }
+  fi
 fi
 
 ##############################
@@ -53,8 +66,8 @@ alias less="less -R"
 alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|    /'"'"''
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+alias portinfo="netstat -ltnp"
 alias python='python3'
-alias pywatch='watch "**/*.py" -c "pkill -9 python && python {path}"'
 alias reload='. ~/.bashrc'
 alias rm="echo WHOOPS, Old habits die hard. Use \'del\', \'trash\' or if rm is actually intended, the full path i.e. '/bin/rm'"
 # Enable aliases to be sudo’ed
@@ -74,7 +87,7 @@ alias ip6="dig @resolver1.opendns.com AAAA myip.opendns.com +short -6"
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 ##############################
@@ -201,6 +214,11 @@ function largestfiles() {
     return
   fi
   find "$1" -type f -exec du -Sh {} + | sort -rh | head -n "$2"
+}
+
+function pywatch() {
+  local watchPattern="${1:-**/*.py}"
+  watch "$watchPattern" -c "killall -9 python; python {path}"
 }
 
 function relpath() {
