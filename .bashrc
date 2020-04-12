@@ -169,6 +169,10 @@ function gpush() {
   $CMD
 }
 
+function gitIgnoreLocallyOnly() {
+  echo "'$1'" >> .git/info/exclude
+}
+
 function historyrange () {
   if [[ -z "$1" ||  -z "$2" ]]
     then
