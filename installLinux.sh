@@ -42,6 +42,6 @@ nvm install --lts
 #NPM packages
 npm install -g carbon-now-cli
 npm install -g chokidar-cli
-npm install -g fkill
+npm install -g fkill-cli
 npm install -g liveserver
 npm install -g ytdl
