@@ -170,7 +170,15 @@ function gpush() {
 }
 
 function gitIgnoreLocallyOnly() {
-  echo "'$1'" >> .git/info/exclude
+  if [ $# -eq 0 ]; then
+    echo "Pass at least one match pattern to add to the local exclude file."
+    return
+  fi
+
+  for path in "$@"
+  do
+    echo "$path" >> .git/info/exclude
+  done
 }
 
 function historyrange () {
