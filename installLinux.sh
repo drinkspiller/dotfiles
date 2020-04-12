@@ -8,6 +8,7 @@ fi
 sudo bash <<EOF
   apt-get update
 
+  apt-get install -y bash-completion
   apt-get install -y build-essential
   apt-get install -y cmake
   apt-get install -y ffmpeg
