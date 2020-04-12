@@ -1,8 +1,15 @@
-.viminfo
+.cache/
+.config/
+.DS_Store
+.DS_Store?
+logs/
+node_modules/
 *sass-cache
-node_modules
+Thumbs.db
+.viminfo
 .vim/swaps/
 .vim/undo/
+.xsession-errors
 
 # VIM IGNORES via https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 # Swap
