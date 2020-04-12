@@ -1,15 +1,35 @@
+.bash_history
 .cache/
 .config/
+Desktop/
+Documents/
+Downloads/
 .DS_Store
 .DS_Store?
+.history
+.*json
+.lesshst
+.local
 logs/
 node_modules/
+.npm
+.nvm/
+.pki/
 *sass-cache
+.ssh/
 Thumbs.db
+.vidalia/
 .viminfo
 .vim/swaps/
 .vim/undo/
-.xsession-errors
+.vscode*
+.vscode-server/
+.wget*
+.xsession-errors*
+.Xauthroity
+Videos/
+Music/
+
 
 # VIM IGNORES via https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
 # Swap
@@ -27,8 +47,10 @@ Sessionx.vim
 # Temporary
 .netrwhist
 *~
+
 # Auto-generated tag files
 tags
+
 # Persistent undo
 [._]*.un~
 
