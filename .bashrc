@@ -271,7 +271,6 @@ export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\][ \w ]$(__git_
 PROMPT_DIRTRIM=3
 
 # Increase History Persistence
-# Via https://paste.googleplex.com/4574612784414720
 export HISTTIMEFORMAT="%F %r "
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
