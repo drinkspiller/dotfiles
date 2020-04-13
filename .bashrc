@@ -129,8 +129,10 @@ function extract() {
      fi
 }
 
+# Show available functions with personal exclusion filers applied.
 function functions() {
-  grep -Eo '^\s{0,4}(?:function)?\s?([a-zA-Z0-9_]+\(\))' ~/.bashrc | perl -wne '$\ = "\n";/^.*\s([a-zA-Z0-9_]+\(\))/i and print $1'
+  echo -e "\nNote: Custom filters applied to the functions list that follows. To see all functions unfiltered use 'declare -F'\n"
+  declare -F | grep -v -i  -e "skippy"  -e "_git" -e "nvm_" -e "\s_.*"
 }
 
 # Used to put notes in a history file
