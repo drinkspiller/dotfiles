@@ -11,19 +11,14 @@ if [[ $(uname -a) =~ ^Darwin ]]; then
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
   alias refreshdns="sudo killall -HUP mDNSResponder"
-  alias trash="trash-put"
-  alias trashls="trash-list"
 fi
 
 ##############################
 # Linux only aliases
 #############################
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
-  alias del="trash-put"
   alias ll='ls -alhF --color'
   alias open='gio open'
-  alias trash="trash-put"
-  alias trashls="trash-list"
 
   # Alias systemctl as service
   if [[ $(which systemctl | wc -l) == '1' ]] ; then
@@ -50,6 +45,7 @@ alias .....="cd ../../../../"
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 # alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias del="trash-put"
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 del -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 del -Rf'
 alias delsvn='echo ">> recursively removing .svn folders from" pwd && del -rf `find . -type d -name .svn`'
@@ -72,6 +68,8 @@ alias reload='. ~/.bashrc'
 alias rm="echo WHOOPS, Old habits die hard. Use \'del\', \'trash\' or if rm is actually intended, the full path i.e. '/bin/rm'"
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+alias trash="trash-put"
+alias trashls="trash-list"
 alias vi='/usr/bin/vim'
 alias vimi='vim -c start' #start vim in insert mode
 alias watch="chokidar"
@@ -242,8 +240,7 @@ function server() {
 ##############################
 # Bash Customization
 #############################
-
-# check the window size after each command and, if necessary,
+# Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
@@ -287,8 +284,8 @@ shopt -s histappend
 # cleanly its history is lost.
 export PROMPT_COMMAND="history -a"
 
-# pull in command history from other terminals since this terminal was opened
-# note: will reset numeric-based history commands
+# Pull in command history from other terminals since this terminal was opened.
+# Note: will reset numeric-based history commands
 alias hist_reload='history -c; history -r'
 
 # Append to the history file, don't overwrite it.
@@ -319,7 +316,7 @@ else
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# via https://askubuntu.com/a/540230
+# Via https://askubuntu.com/a/540230
 alias g='git'
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
