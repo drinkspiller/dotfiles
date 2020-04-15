@@ -43,6 +43,8 @@
   cm = commit -m
   co = checkout
   cma = commit -am
+  fetch-pull = "!f(){ git fetch ${1} ${2} && git reset --hard ${1}/${2};};f" # via https://stackoverflow.com/a/38267598/959873
+  fp = fetch-pull
   lasttag = describe --tags --abbrev=0
   la = config --get-regexp alias
 	last = log -1 HEAD
