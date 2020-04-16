@@ -31,6 +31,12 @@ sudo bash <<EOF
   pip3 install howdoi
   pip3 install pexpect
   pip3 install ydiff
+
+  # Config
+  # Set vim to default editor
+  if [[ $(which systemctl | wc -l) == '1' ]] ; then
+    update-alternatives --set editor /usr/bin/vim.basic
+  fi
 EOF
 
 # MISC
