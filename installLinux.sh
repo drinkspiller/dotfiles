@@ -43,13 +43,28 @@ EOF
 
 # MISC
 #NVM & Node
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-source ~/.bashrc
-nvm install --lts
-
-#NPM packages
-#npm install -g carbon-now-cli
-npm install -g chokidar-cli
-npm install -g fkill-cli
-npm install -g liveserver
-#npm install -g ytdl
+# At the time of writing, 11,15,0 is the latest binary for armv6.
+run_as=""
+if  [[ $(uname -m) == 'armv6l' ]]
+then
+  $run_as="sudo"
+  sudo bash <<EOF
+    cd /tmp
+    wget https://nodejs.org/dist/latest-v11.x/node-v11.15.0-linux-armv6l.tar.gz
+    tar -xzf node-v11.15.0-linux-armv6l.tar.gz
+    cp -R node-v11.15.0-linux-armv6l/* /usr/local/
+    /bin/rm -rf node-v*
+EOF
+else
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  source ~/.bashrc
+  nvm install --lts
+fi
+$run_as bash <<EOF
+  #NPM packages
+  #npm install -g carbon-now-cli
+  npm install -g chokidar-cli
+  npm install -g fkill-cli
+  npm install -g liveserver
+  #npm install -g ytdl
+EOF
