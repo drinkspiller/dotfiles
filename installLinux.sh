@@ -13,9 +13,8 @@ sudo bash <<EOF
   apt-get install -y cmake
   apt-get install -y ffmpeg
   apt-get install -y libssl-dev
-  apt-get install -y git
+  apt-get install -y git-all
   apt-get install -y meld
-  apt-get install -y mysql-server
   apt-get install -y python-gpiozero
   apt-get install -y python3-pip
   apt-get install -y sshfs
@@ -23,10 +22,10 @@ sudo bash <<EOF
   apt-get install -y unzip
   apt-get install -y vim
   apt-get install -y vlc
-  apt-get install -y vnc4server
+  #apt-get install -y vnc4server
   apt-get install -y x264
-  apt-get install -y xclip
-  apt-get install -y yarnpkg
+  #apt-get install -y xclip
+  #apt-get install -y yarnpkg
 
   # PIP
   pip3 install howdoi
@@ -41,8 +40,8 @@ source ~/.bashrc
 nvm install --lts
 
 #NPM packages
-npm install -g carbon-now-cli
+#npm install -g carbon-now-cli
 npm install -g chokidar-cli
 npm install -g fkill-cli
 npm install -g liveserver
-npm install -g ytdl
+#npm install -g ytdl
