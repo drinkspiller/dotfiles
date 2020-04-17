@@ -43,11 +43,11 @@ EOF
 
 # MISC
 #NVM & Node
-# At the time of writing, 11,15,0 is the latest binary for armv6.
-run_as=""
+# At the time of writing, 11.15.0 is the latest binary for armv6.
+export run_as=""
 if  [[ $(uname -m) == 'armv6l' ]]
 then
-  $run_as="sudo"
+  run_as="sudo"
   sudo bash <<EOF
     cd /tmp
     wget https://nodejs.org/dist/latest-v11.x/node-v11.15.0-linux-armv6l.tar.gz
