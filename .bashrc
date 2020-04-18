@@ -16,6 +16,7 @@ if [[ $(uname -a) =~ ^Darwin ]]; then
   alias piunmount='umount ~/mounts/rpi-media'
   alias pizunmount='umount ~/mounts/rpi-zero'
   alias refreshdns="sudo killall -HUP mDNSResponder"
+  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 fi
 
 ##############################
