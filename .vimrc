@@ -1,5 +1,6 @@
 "set some junk
 set nocompatible
+set colorcolumn=80
 set autoindent " Copy indent from last line when starting new line.
 "set cursorline " Highlight current line
 set encoding=utf-8 nobomb " BOM often causes trouble
