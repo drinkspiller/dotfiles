@@ -20,6 +20,7 @@ sudo bash <<EOF
   apt-get install -y python-gpiozero
   apt-get install -y python3-pip
   apt-get install -y sshfs
+  apt-get install -y transmission-cli
   apt-get install -y trash-cli
   apt-get install -y unzip
   apt-get install -y vim

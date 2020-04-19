@@ -25,19 +25,7 @@ fi
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
   alias ll='ls -alhF --color'
   alias open='gio open'
-
-  # Alias systemctl as service
-  if [[ $(which systemctl | wc -l) == '1' ]] ; then
-    function service() {
-      if [[ -z "$1" ||  -z "$2" ]]
-        then
-          echo -e "Two parameters are required. Example usage:\n(sudo) service <servce name> <start|stop|restart|enable|disable>"
-        return
-      fi
-
-      systemctl $2 $1
-    }
-  fi
+  alias torrent='transmission-cli --no-downlimit --encryption-required --uplimit=0 --download-dir=~/Videos'
 fi
 
 ##############################
