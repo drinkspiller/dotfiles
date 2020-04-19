@@ -47,6 +47,7 @@ brew 'opus' #Audio codec
 brew 'pipenv'
 brew 'pyinstaller' #Bundle a Python application and all its dependencies
 brew 'python'
+brew 'pv'
 brew 'readline' #Library for command-line editing
 brew 'ruby'
 brew 'sdl2' #Low-level access to audio, keyboard, mouse, joystick, and graphics
