@@ -54,7 +54,7 @@ alias grep='grep --color=always'
 alias howdoi='howdoi -c'
 alias less="less -R"
 # List a recursive tree.
-alias lt='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|    /'"'"''
+alias lt='find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias portinfo="netstat -ltnp"
