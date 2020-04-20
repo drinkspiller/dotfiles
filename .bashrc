@@ -185,7 +185,7 @@ function gitIgnoreLocallyOnly() {
 
   for path in "$@"
   do
-    echo "$path" >> .git/info/exclude
+    echo "$path" >> ~/.git/info/exclude
   done
 }
 
