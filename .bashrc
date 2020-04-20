@@ -60,7 +60,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias portinfo="netstat -ltnp"
 alias python='python3'
 alias reload='. ~/.bashrc'
-alias rm="echo WHOOPS, Old habits die hard. Use \'del\', \'trash\' or if rm is actually intended, the full path i.e. '/bin/rm'"
+alias rm="echo -e \"${BRed}WHOOPS, Old habits die hard.${Color_Off} Use 'del', 'trash' or if rm is actually intended, the full path i.e. '/bin/rm'\"."
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 alias trash="trash-put"
