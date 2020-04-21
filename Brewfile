@@ -40,6 +40,7 @@ brew 'libvpx'
 brew 'libyaml'
 brew 'lsd' #Clone of ls with colorful output, file type icons, and more
 brew 'lua'
+brew 'keycastr'
 brew 'mas' # Mac App Store manager
 brew 'nvm'
 brew 'openssl@1.1'
