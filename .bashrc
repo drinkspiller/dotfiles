@@ -208,7 +208,7 @@ function largestfiles() {
       echo -e "Two parameters are required. Example usage:\nlargestfiles <start directory> <# of files to list>"
     return
   fi
-  sudo du -a "$1" | sort -n -r | head -n "$2"
+  du -ah "$1" | sort -rh | head -n "$2"
 }
 
 function pywatch() {
