@@ -202,13 +202,15 @@ function killport() {
   kill -9 $(lsof -t -i:$1)
 }
 
-function largestfiles() {
+function largestfilesandfolders() {
   if [[ -z "$1" ||  -z "$2" ]]
     then
       echo -e "Two parameters are required. Example usage:\nlargestfiles <start directory> <# of files to list>"
     return
   fi
-  du -ah "$1" | sort -rh | head -n "$2"
+  # Remove superfluous training slash or it will appear as a double slash in output
+  [[ ${1: -1} == "/"  ]] && dir=${1%/} || dir=$1
+  du -ah "$dir" | sort -rh | head -n "$2"
 }
 
 function pywatch() {
