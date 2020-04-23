@@ -15,10 +15,13 @@ tap 'homebrew/bundle'
 tap 'homebrew/services'
 
 # Core Homebrew
+brew 'autoconf'
+brew 'automake'
 brew 'cmake' #Tool for browsing source code
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'cscope' #Tool for browsing source code
 brew 'csvkit' #Suite of command-line tools for converting to and working with CSV
+brew 'e2fsprogs'
 brew 'findutils'
 brew 'ffmpeg'
 brew 'gcc'
