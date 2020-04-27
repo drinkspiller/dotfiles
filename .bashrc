@@ -219,7 +219,7 @@ function pywatch() {
 }
 
 function relpath() {
-  python -c "import os.path; print os.path.relpath('$1','${2:-$PWD}')" ;
+  python -c "import os.path; print(os.path.relpath('$1','${2:-$PWD}'))" ;
 }
 
 # Creates a new directory and enter it.
