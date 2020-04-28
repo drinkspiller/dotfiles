@@ -69,3 +69,4 @@
 
 [core]
 	excludesfile = ~/.gitignore
+  autocrlf = false

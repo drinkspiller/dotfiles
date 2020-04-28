@@ -17,6 +17,7 @@ tap 'homebrew/services'
 # Core Homebrew
 brew 'autoconf'
 brew 'automake'
+brew 'boxes'
 brew 'cmake' #Tool for browsing source code
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'cscope' #Tool for browsing source code

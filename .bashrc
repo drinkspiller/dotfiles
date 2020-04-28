@@ -198,6 +198,12 @@ function historyrange () {
   history | grep -i -B "$2" -A "$2" "$1"
 }
 
+function jswatch() {
+  local watchPattern="${1:-**/*.js}"
+  watch "$watchPattern" -c "pkill -f 'node {path}'; node {path}"
+}
+
+
 function killport() {
   kill -9 $(lsof -t -i:$1)
 }
@@ -215,7 +221,7 @@ function largestfilesandfolders() {
 
 function pywatch() {
   local watchPattern="${1:-**/*.py}"
-  watch "$watchPattern" -c "killall -9 python; python {path}"
+  watch "$watchPattern" -c "pkill -f 'python {path}'; python {path}"
 }
 
 function relpath() {

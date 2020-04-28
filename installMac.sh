@@ -17,6 +17,8 @@ fi
 brew update
 
 # Install all our dependencies with bundle (See brewfile)
+sudo chown -R $(whoami) /usr/local/bin /usr/local/etc /usr/local/sbin /usr/local/share /usr/local/share/doc
+sudo chmod u+w /usr/local/bin /usr/local/etc /usr/local/sbin /usr/local/share /usr/local/share/doc
 brew tap homebrew/bundle
 brew bundle
 
