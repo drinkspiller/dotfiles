@@ -30,6 +30,7 @@ npm install -g carbon-now-cli
 npm install -g chokidar-cli
 npm install -g fkill-cli
 npm install -g liveserver
+npm install -g tldr
 npm install -g ytdl
 
 # Set default MySQL root password and auth type.

@@ -67,5 +67,6 @@ $run_as bash <<EOF
   npm install -g chokidar-cli
   npm install -g fkill-cli
   npm install -g live-server
+  npm install -g tldr
   #npm install -g ytdl
 EOF
