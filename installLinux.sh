@@ -44,17 +44,13 @@ EOF
 
 # MISC
 #NVM & Node
-# At the time of writing, 11.15.0 is the latest binary for armv6.
+# See https://github.com/sdesalas/node-pi-zero for available armv6 versions.
 export run_as=""
 if  [[ $(uname -m) == 'armv6l' ]]
 then
   run_as="sudo"
   sudo bash <<EOF
-    cd /tmp
-    wget https://nodejs.org/dist/latest-v11.x/node-v11.15.0-linux-armv6l.tar.gz
-    tar -xzf node-v11.15.0-linux-armv6l.tar.gz
-    cp -R node-v11.15.0-linux-armv6l/* /usr/local/
-    /bin/rm -rf node-v*
+    curl -o- https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v15.11.0.sh | bash
 EOF
 else
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
