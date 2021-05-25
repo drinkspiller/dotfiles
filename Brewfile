@@ -26,7 +26,7 @@ brew 'e2fsprogs'
 brew 'findutils'
 brew 'ffmpeg'
 brew 'gcc'
-brew 'gdbm' #GNU database manager
+# brew 'gdbm' #GNU database manager
 brew 'gettext' #GNU internationalization (i18n) and localization (l10n) library
 brew 'graphicsmagick'
 brew 'howdoi'
@@ -44,21 +44,19 @@ brew 'libvpx'
 brew 'libyaml'
 brew 'lsd' #Clone of ls with colorful output, file type icons, and more
 brew 'lua'
-brew 'keycastr'
 brew 'mas' # Mac App Store manager
 brew 'nvm'
 brew 'openssl@1.1'
 brew 'opus' #Audio codec
 brew 'pipenv'
 brew 'pyinstaller' #Bundle a Python application and all its dependencies
-brew 'python'
-brew 'pv'
+# brew 'python'
+brew 'pv' # pipeviewer — Monitor data's progress through a pipe
 brew 'readline' #Library for command-line editing
 brew 'ruby'
 brew 'sdl2' #Low-level access to audio, keyboard, mouse, joystick, and graphics
 brew 'snappy' #Compression/decompression library aiming for high speed
-brew 'sqlite'
-brew 'sshfs'
+# brew 'sqlite'
 brew 'theora' #Open video compression format
 brew 'trash-cli' #Move files to macOS's Trash
 brew 'tree' #Display directories as trees (with optional color/HTML output)
@@ -75,6 +73,8 @@ brew 'ydiff'
 # Cask Apps
 # Brew cask is an extension to brew that allows management of graphical
 # applications through the Cask project.
+brew 'svn' # Placed here since it is a dependency for some subsequent casks
+cask 'betterzip' # https://macitbetter.com/BetterZip-Quick-Look-Generator/
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-roboto-condensed'
@@ -83,6 +83,7 @@ cask 'google-chrome'
 cask 'google-cloud-sdk'
 cask 'iterm2'
 cask 'java'
+cask 'keycastr'
 cask 'meld'
 cask 'osxfuse'
 cask 'qlcolorcode'
@@ -100,6 +101,9 @@ cask 'tor-browser'
 cask 'visual-studio-code'
 cask 'vlc'
 cask 'xquartz'
+
+# After casks due to osxfuse dependency
+brew 'sshfs'
 
 # Mac App Store (see brew 'mas'above)
 mas 'ColorSlurp', id: 1287239339

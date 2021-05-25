@@ -47,7 +47,7 @@
   fp = fetch-pull
   lasttag = describe --tags --abbrev=0
   la = config --get-regexp alias
-	last = log -1 HEAD
+	last = ll -1 HEAD
 	ls = log --pretty=format:\"%Cblue[%ae]\t %Creset%Cgreen%as  %C(yellow)%h  %Creset%s\" --decorate
 	ll = log --pretty=format:\"%Cblue[%ae]\t %Creset%Cgreen%as  %C(yellow)%h  %Creset%s\" --decorate --stat
   lt = describe --tags --abbrev=0
@@ -69,4 +69,6 @@
 
 [core]
 	excludesfile = ~/.gitignore
-  autocrlf = false
+	autocrlf = false
+[init]
+	defaultBranch = main

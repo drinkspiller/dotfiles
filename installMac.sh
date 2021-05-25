@@ -23,7 +23,7 @@ brew tap homebrew/bundle
 brew bundle
 
 # NVM & Node
-mkdir ~/.nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 nvm install --lts
 #NPM Packages
 npm install -g carbon-now-cli
@@ -33,14 +33,8 @@ npm install -g liveserver
 npm install -g tldr
 npm install -g ytdl
 
-# Set default MySQL root password and auth type.
-mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
-
-# Clone Github repositories
-./clone.sh
-
 # Backup .bashrc from $HOME (if it exists)
-mv $HOME/.bashrc "$HOME/.bashrc_$(date +'%m-%d-%Y_%T')"
+cp $HOME/.bashrc "$HOME/.bashrc_$(date +'%m-%d-%Y_%T')"
 
 # Set macOS preferences
 # Finder: show hidden files by default
@@ -135,3 +129,5 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 killall Finder
+
+echo "Done running installMac.sh!!"
