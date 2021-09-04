@@ -75,6 +75,7 @@ brew 'ydiff'
 # applications through the Cask project.
 brew 'svn' # Placed here since it is a dependency for some subsequent casks
 cask 'betterzip' # https://macitbetter.com/BetterZip-Quick-Look-Generator/
+cask 'font-hack-nerd-font'
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-roboto-condensed'
