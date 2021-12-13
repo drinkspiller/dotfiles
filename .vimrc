@@ -51,7 +51,8 @@ nnoremap Y y$
 
 syntax on
 "colorscheme murphy
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
+colorscheme molokai
 set autoindent
 set number
 
