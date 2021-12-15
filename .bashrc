@@ -398,9 +398,7 @@ if [ -f '/usr/local/google/home/skyebot/google-cloud-sdk/completion.bash.inc' ];
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 #Pyenv init
-export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 ##############################
 # Colors (via https://stackoverflow.com/a/28938235/959873)
