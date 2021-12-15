@@ -24,7 +24,7 @@ fi
 #############################
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
   alias ll='ls -alhF --color'
-  alias open='gio open'
+  alias open='xdg-open'
   alias torrent='transmission-cli --no-downlimit --encryption-required --uplimit=0 --download-dir=~/Videos'
 fi
 
