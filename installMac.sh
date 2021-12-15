@@ -16,11 +16,17 @@ fi
 # Update Homebrew recipes
 brew update
 
-# Install all our dependencies with bundle (See brewfile)
+# Install all our dependencies with bundle (See Brewfile)
 sudo chown -R $(whoami) /usr/local/bin /usr/local/etc /usr/local/sbin /usr/local/share /usr/local/share/doc
 sudo chmod u+w /usr/local/bin /usr/local/etc /usr/local/sbin /usr/local/share /usr/local/share/doc
 brew tap homebrew/bundle
 brew bundle
+
+# SDK Headers required for pyenv
+sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+# Install pyenv
+curl https://pyenv.run | bash
+
 
 # NVM & Node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
