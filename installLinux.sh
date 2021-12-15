@@ -11,24 +11,39 @@ sudo bash <<EOF
   apt-get install -y bash-completion
   apt-get install -y build-essential
   apt-get install -y cmake
-  apt install exfat-fuse
-  apt install exfat-utils
+  apt-get install -y curl
+  apt-get install exfat-fuse
+  apt-get install exfat-utils
   apt-get install -y ffmpeg
   apt-get install -y libssl-dev
+  apt-get install -y libffi-dev
+  apt-get install -y libbz2-dev
+  apt-get install -y libncurses5-dev
+  apt-get install -y libncursesw5-dev
+  apt-get install -y libreadline-dev
+  apt-get install -y libsqlite3-dev
+  apt-get install -y liblzma-dev
+  apt-get install -y llvm
   apt-get install -y git-all
   apt-get install -y meld
+  apt-get install -y make
   apt-get install -y python-gpiozero
   apt-get install -y python3-pip
+  apt-get install -y python-openssl
   apt-get install -y sshfs
   apt-get install -y transmission-cli
+  apt-get install -y tk-dev
   apt-get install -y trash-cli
   apt-get install -y unzip
   apt-get install -y vim
   apt-get install -y vlc
   #apt-get install -y vnc4server
+  apt-get install -y wget
   apt-get install -y x264
   #apt-get install -y xclip
+  apt-get install -y xz-utils
   #apt-get install -y yarnpkg
+  apt-get install -y zlib1g-dev
 
   # PIP
   pip3 install howdoi
@@ -43,6 +58,9 @@ sudo bash <<EOF
 EOF
 
 # MISC
+# Pyenv
+curl https://pyenv.run | bash
+
 #NVM & Node
 # See https://github.com/sdesalas/node-pi-zero for available armv6 versions.
 export run_as=""
