@@ -22,8 +22,6 @@ sudo chmod u+w /usr/local/bin /usr/local/etc /usr/local/sbin /usr/local/share /u
 brew tap homebrew/bundle
 brew bundle
 
-# SDK Headers required for pyenv
-sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 # Install pyenv
 curl https://pyenv.run | bash
 
