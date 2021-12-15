@@ -56,7 +56,7 @@ brew 'readline' #Library for command-line editing
 brew 'ruby'
 brew 'sdl2' #Low-level access to audio, keyboard, mouse, joystick, and graphics
 brew 'snappy' #Compression/decompression library aiming for high speed
-# brew 'sqlite'
+brew 'sqlite3'
 brew 'theora' #Open video compression format
 brew 'trash-cli' #Move files to macOS's Trash
 brew 'tree' #Display directories as trees (with optional color/HTML output)
@@ -67,8 +67,10 @@ brew 'x264'
 brew 'x265'
 brew 'xclip'
 brew 'xvid'
+brew 'xz'
 brew 'yarn'
 brew 'ydiff'
+brew 'zlib'
 
 # Cask Apps
 # Brew cask is an extension to brew that allows management of graphical
