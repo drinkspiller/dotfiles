@@ -1,11 +1,7 @@
-# .bash_profile
-
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
-
-# User specific environment and startup programs
 
 #start ssh-agent
 if [ -x /bin/bash ]; then
@@ -14,12 +10,12 @@ elif [ -x /usr/bin/bash ]; then
     exec ssh-agent /usr/bin/bash
 fi
 
-test -r /sw/bin/init.sh && . /sw/bin/init.sh
-
-test -r /sw/bin/init.sh && . /sw/bin/init.sh
-
 #HOMEBREW COMPLETION
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# Pyenv setup.
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
