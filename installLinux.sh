@@ -12,8 +12,8 @@ sudo bash <<EOF
   apt-get install -y build-essential
   apt-get install -y cmake
   apt-get install -y curl
-  apt-get install exfat-fuse
-  apt-get install exfat-utils
+  apt-get install -y exfat-fuse
+  apt-get install -y exfat-utils
   apt-get install -y ffmpeg
   apt-get install -y libssl-dev
   apt-get install -y libffi-dev
