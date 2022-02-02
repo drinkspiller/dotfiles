@@ -68,7 +68,7 @@ if  [[ $(uname -m) == 'armv6l' ]]
 then
   run_as="sudo"
   sudo bash <<EOF
-    curl -o- https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v15.11.0.sh | bash
+    curl -o- https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v16.3.0.sh| bash
 EOF
 else
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
