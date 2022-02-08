@@ -1,0 +1,8 @@
+# This gives us a handy display bar along the bottom that includes the name of the session, the current machine load, and the time
+hardstatus alwayslastline '%{= kG}[ %{G}%H | %{=kw}%?%-Lw%?%{g}%n*%f%t%?(%u)%? %{g}]%{w}%?%+Lw%?%?%=%{g}[ %{K}%l %{g}][ %{B}%Y-%m-%d %{W    }%c %{g}]'
+defscrollback 10000
+startup_message off
+autodetach on
+escape ^Zz    # Save Ctrl-A for bash
+termcapinfo xterm* ti@:te=\E[2J    # For mouse scroll. @see https://goo.gl/7QSQrd
+altscreen on    # Clear screen after quitting vim
