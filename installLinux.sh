@@ -15,6 +15,7 @@ sudo bash <<EOF
   apt-get install -y exfat-fuse
   apt-get install -y exfat-utils
   apt-get install -y ffmpeg
+  apt-get install -y libasound-dev
   apt-get install -y libssl-dev
   apt-get install -y libffi-dev
   apt-get install -y libbz2-dev
@@ -27,6 +28,7 @@ sudo bash <<EOF
   apt-get install -y git-all
   apt-get install -y meld
   apt-get install -y make
+  apt-get install -y pulseaudio
   apt-get install -y python-gpiozero
   apt-get install -y python3-numpy
   apt-get install -y python3-openssl
