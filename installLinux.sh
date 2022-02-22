@@ -28,8 +28,12 @@ sudo bash <<EOF
   apt-get install -y meld
   apt-get install -y make
   apt-get install -y python-gpiozero
+  apt-get install -y python3-numpy
+  apt-get install -y python3-openssl
   apt-get install -y python3-pip
-  apt-get install -y python-openssl
+  apt-get install -y python3-pyaudio
+  apt-get install -y python3-gpiozero
+  apt-get install -y python3-setuptools
   apt-get install -y sshfs
   apt-get install -y transmission-cli
   apt-get install -y tk-dev
