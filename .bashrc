@@ -61,7 +61,6 @@ alias portinfo="netstat -ltnp"
 alias python='python3'
 alias reload='. ~/.bashrc'
 alias rm="echo -e \"${BRed}WHOOPS, Old habits die hard.${Color_Off} Use 'del', 'trash' or if rm is actually intended, the full path i.e. '/bin/rm'\"."
-alias ssh="ssh-screen"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
