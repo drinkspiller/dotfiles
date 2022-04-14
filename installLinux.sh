@@ -36,6 +36,7 @@ sudo bash <<EOF
   apt-get install -y python3-pyaudio
   apt-get install -y python3-gpiozero
   apt-get install -y python3-setuptools
+  apt-get install -y screen
   apt-get install -y sshfs
   apt-get install -y transmission-cli
   apt-get install -y tk-dev
