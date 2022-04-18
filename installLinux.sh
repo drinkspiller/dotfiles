@@ -13,6 +13,8 @@ sudo bash <<EOF
   apt-get install -y cmake
   apt-get install -y curls
   apt-get install -y ddclient
+    systemctl enable ddclient.service
+    systemctl start ddclient.service
   apt-get install -y exfat-fuse
   apt-get install -y exfat-utils
   apt-get install -y ffmpeg
