@@ -12,7 +12,7 @@ sudo bash <<EOF
   apt-get install -y build-essential
   apt-get install -y cmake
   apt-get install -y curls
-  apt-get install -y dyndns
+  apt-get install -y ddclient
   apt-get install -y exfat-fuse
   apt-get install -y exfat-utils
   apt-get install -y ffmpeg
