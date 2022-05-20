@@ -50,6 +50,11 @@ command Q q
 " via https://stackoverflow.com/a/7078429
 cmap w!! w !sudo tee > /dev/null %
 
+" Run current file in Python with  F9 key
+" via https://stackoverflow.com/a/18948530
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
 " Yank from cursor to end of line
 nnoremap Y y$
 
