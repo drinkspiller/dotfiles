@@ -46,6 +46,10 @@ command Wq wq
 command W w
 command Q q
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" via https://stackoverflow.com/a/7078429
+cmap w!! w !sudo tee > /dev/null %
+
 " Yank from cursor to end of line
 nnoremap Y y$
 
