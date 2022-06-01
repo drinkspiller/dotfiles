@@ -206,7 +206,9 @@ function jswatch() {
 
 
 function killport() {
-  kill -9 $(lsof -t -i:$1)
+  # OLD:
+  # kill -9 $(lsof -t -i:$1)
+  sudo lsof -t -i tcp:$1 -s tcp:listen | sudo xargs kill
 }
 
 function largestfilesandfolders() {
