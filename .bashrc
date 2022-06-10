@@ -40,7 +40,6 @@ alias .....="cd ../../../../"
 #   sleep 10; alert
 # alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias colorvars='echo -e "You take the ${Blue}blue pill${Color_Off} — the story ends, you wake up in bed and believe whatever you want to believe. You take the ${Red}red pill${Color_Off} — you stay in Wonderland, and I show you how deep the rabbit hole goes. Remember: all I’m offering is the ${On_Yellow}${BBlack}truth${Color_Off}. Nothing more."';
-alias del="trash-put"
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 del -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 del -Rf'
 alias delsvn='echo ">> recursively removing .svn folders from" pwd && del -rf `find . -type d -name .svn`'
@@ -60,7 +59,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias portinfo="netstat -ltnp"
 alias python='python3'
 alias reload='. ~/.bashrc'
-alias rm="echo -e \"${BRed}WHOOPS, Old habits die hard.${Color_Off} Use 'del', 'trash' or if rm is actually intended, the full path i.e. '/bin/rm'\"."
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
