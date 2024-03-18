@@ -22,8 +22,15 @@ sudo chmod u+w /usr/local/bin /usr/local/etc /usr/local/sbin /usr/local/share /u
 brew tap homebrew/bundle
 brew bundle
 
-# Install pyenv
-curl https://pyenv.run | bash
+# Install Conda
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init bash
+
+# Install [autoenv](https://github.com/hyperupcall/autoenv)
+curl -#fLo- 'https://raw.githubusercontent.com/hyperupcall/autoenv/master/scripts/install.sh' | sh
 
 
 # NVM & Node
