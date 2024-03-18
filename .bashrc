@@ -364,6 +364,10 @@ PROMPT_COMMAND="$PROMPT_COMMAND; [ -d $HOME/.history ] || mkdir -p $HOME/.histor
 #############################
 # Mac
 if [[ $(uname -a) =~ ^Darwin ]]; then
+  # Homebrew path
+  # export PATH="/usr/local/bin:/usr/local/sbin:$PATH" # For Intel Macs
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" # For Apple Silicon (M1/M2/M3) Macs
+
   export NVM_DIR="$HOME/.nvm"
   [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
   [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
