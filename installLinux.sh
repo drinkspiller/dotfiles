@@ -32,6 +32,7 @@ sudo bash <<EOF
   apt-get install -y git-all
   apt-get install -y meld
   apt-get install -y make
+  apt-get install -y net-tools
   apt-get install -y ncdu
   apt-get install -y portaudio19-dev
   apt-get install -y python-gpiozero
