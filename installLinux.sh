@@ -27,6 +27,7 @@ sudo bash <<EOF
   apt-get install -y libreadline-dev
   apt-get install -y libsqlite3-dev
   apt-get install -y liblzma-dev
+  apt-get install -y lsd
   apt-get install -y llvm
   apt-get install -y git-all
   apt-get install -y meld
