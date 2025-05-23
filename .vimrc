@@ -20,10 +20,9 @@ set showmode " Show the current mode.
 set sidescrolloff=3 " Start scrolling three columns before vertical border of window.
 set smartcase " Ignore 'ignorecase' if search patter contains uppercase characters.
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
-set softtabstop=2 " Tab key results in 2 spaces
 set title " Show the filename in the window titlebar.
 set ttyfast " Send more characters at a given time.
-set ttymouse=xterm " Set mouse type to xterm.
+set ttymouse=xterm2 " Set mouse type to xterm.
 
 " Local dirs
 if version >= 703

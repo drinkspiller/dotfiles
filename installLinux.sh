@@ -11,13 +11,11 @@ sudo bash <<EOF
   apt-get install -y bash-completion
   apt-get install -y build-essential
   apt-get install -y cmake
-  apt-get install -y curls
-  apt-get install -y ddclient
-    systemctl enable ddclient.service
-    systemctl start ddclient.service
+  apt-get install -y curl
   apt-get install -y exfat-fuse
   apt-get install -y exfat-utils
   apt-get install -y ffmpeg
+  apt-get install -y gnome-sushi
   apt-get install -y libasound-dev
   apt-get install -y libssl-dev
   apt-get install -y libffi-dev
@@ -32,34 +30,37 @@ sudo bash <<EOF
   apt-get install -y meld
   apt-get install -y make
   apt-get install -y ncdu
-  apt-get install -y portaudio19-dev
-  apt-get install -y python-gpiozero
-  apt-get install -y python3-numpy
-  apt-get install -y python3-openssl
-  apt-get install -y python3-pip
-  apt-get install -y python3-pyaudio
-  apt-get install -y python3-gpiozero
-  apt-get install -y python3-setuptools
+  # apt-get install -y portaudio19-dev
+  #apt-get install -y python-gpiozero
+  #apt-get install -y python3-numpy
+  #apt-get install -y python3-openssl
+  #apt-get install -y python3-pip
+  #apt-get install -y python3-pyaudio
+  #apt-get install -y python3-gpiozero
+  #apt-get install -y python3-setuptools
   apt-get install -y screen
   apt-get install -y sshfs
-  apt-get install -y transmission-cli
-  apt-get install -y tk-dev
-  apt-get install -y trash-cli
+  #apt-get install -y transmission-cli
+  #apt-get install -y tk-dev
+  #apt-get install -y trash-cli
   apt-get install -y unzip
-  apt-get install -y vim
+  #apt-get install -y vim
   apt-get install -y vlc
-  #apt-get install -y vnc4server
+  apt-get install -y vnc4server
   apt-get install -y wget
   apt-get install -y x264
   #apt-get install -y xclip
   apt-get install -y xz-utils
   #apt-get install -y yarnpkg
   apt-get install -y zlib1g-dev
+  apt-get install -y ddclient
+    systemctl enable ddclient.service
+    systemctl start ddclient.service
 
   # PIP
-  pip3 install howdoi
-  pip3 install pexpect
-  pip3 install ydiff
+  #pip3 install howdoi
+  #pip3 install pexpect
+  #pip3 install ydiff
 
   # Config
   # Set vim to default editor
@@ -69,8 +70,8 @@ sudo bash <<EOF
 EOF
 
 # MISC
-# Pyenv
-curl https://pyenv.run | bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  -O ~/Downloads/miniconda.sh
+bash ~/Downloads/miniconda.sh -p $HOME/miniconda
 
 #NVM & Node
 # See https://github.com/sdesalas/node-pi-zero for available armv6 versions.
@@ -82,16 +83,16 @@ then
     curl -o- https://raw.githubusercontent.com/sdesalas/node-pi-zero/master/install-node-v16.3.0.sh| bash
 EOF
 else
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   source ~/.bashrc
   nvm install --lts
 fi
 $run_as bash <<EOF
   #NPM packages
   #npm install -g carbon-now-cli
-  npm install -g chokidar-cli
+  @npm install -g chokidar-cli
   npm install -g fkill-cli
-  npm install -g live-server
-  npm install -g tldr
+  #npm install -g live-server
+  #npm install -g tldr
   #npm install -g ytdl
 EOF

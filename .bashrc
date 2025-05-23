@@ -25,6 +25,7 @@ fi
 if [[ ! $(uname -a) =~ ^Darwin ]]; then
   alias ll='ls -alhF --color'
   alias open='xdg-open'
+  alias openwebui='conda activate openwebui && open-webui serve'
   alias torrent='transmission-cli --no-downlimit --encryption-required --uplimit=0 --download-dir=~/Videos'
 fi
 
@@ -37,8 +38,7 @@ alias ....="cd ../../../"
 alias ......="cd ../../../../../"
 alias .....="cd ../../../../"
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#   sleep 10; alert# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias colorvars='echo -e "You take the ${Blue}blue pill${Color_Off} — the story ends, you wake up in bed and believe whatever you want to believe. You take the ${Red}red pill${Color_Off} — you stay in Wonderland, and I show you how deep the rabbit hole goes. Remember: all I’m offering is the ${On_Yellow}${BBlack}truth${Color_Off}. Nothing more."';
 alias delDS='find ./ -name ".DS_Store" -print0 | xargs -0 del -Rf'
 alias delMACOSX='find ./ -name "__MACOSX" -print0 | xargs -0 del -Rf'
@@ -65,6 +65,7 @@ alias sudo='sudo '
 alias trash="trash-put"
 alias trashls="trash-list"
 alias vi='/usr/bin/vim'
+alias vim='export TERM=linux; vim $@'
 alias vimi='vim -c start' #start vim in insert mode
 alias watch="chokidar"
 # Get week number
@@ -401,14 +402,6 @@ if [ -f '/usr/local/google/home/skyebot/google-cloud-sdk/completion.bash.inc' ];
 
 # Yarn Path
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-#Pyenv init
-# appraoch via https://github.com/pyenv/pyenv/issues/1909#issuecomment-835851208
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)" 2>&1 >/dev/null
-eval "$(pyenv init --path)"
-
 ##############################
 # Colors (via https://stackoverflow.com/a/28938235/959873)
 # See alias 'colorvars' for demo usage.
@@ -547,3 +540,22 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/skye/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/skye/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/skye/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/skye/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# Ubuntu
+#export GTK_THEME="WhiteSur-Dark"
